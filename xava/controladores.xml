@@ -1,0 +1,56 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE controladores SYSTEM "dtds/controladores.dtd">
+
+<controladores>
+
+	<!-- Variable de entorno: <var-entorno nombre="Alumnado2_ANYO_DEFECTO" valor="2015"/> -->
+
+	<!-- Objeto de sesión: <Objeto nombre="Alumnado2_anyoActivo" clase="java.lang.Integer" 
+		valor="2015" ambito="global"/> -->
+
+	<!-- Controlador: <controlador nombre="Profesor"> <hereda-de controlador="Typical"/> 
+		<accion nombre="new" icono="library-plus" atajo-de-teclado="Control N" clase="acciones.CrearProfesor"/> 
+		</controlador> -->
+
+	<controlador nombre="AsistenciaAlumnoControlador">
+		<!-- <hereda-de controlador="CRUD" /> -->
+		<accion nombre="new"
+			clase="asistencia.control.AsistenciaAlumnoNuevo_action"
+			icono="library-plus" modo="list" por-defecto="siempre"></accion>
+		<accion nombre="deleteSelected" modo="detail" oculta="true">
+		</accion>
+		<accion nombre="viewDetail"
+			clase="asistencia.control.AsistenciaAlumnoEditar_action" modo="NONE"
+			en-cada-fila="true" etiqueta="Detalle" imagen="images/edit.gif">
+			<poner propiedad="nextAction" valor="Mode.detail" />
+		</accion>
+		<accion nombre="Volver" modo="detail"
+			imagen="images/previous.gif" por-defecto="false"
+			clase="asistencia.control.AsistenciasTransitoriasVolver_action"></accion>
+
+		<accion nombre="Guardar"
+			clase="asistencia.control.AsistenciaAlumnoGuardar_action"
+			modo="detail"></accion>
+	</controlador>
+
+	<controlador nombre="AsistenciaTransitoriaControl">
+		<accion nombre="Guardar" etiqueta="Guardar"
+			descripcion="Guardar" vista="Completa" modo="detail"
+			clase="asistencia.control.AsistenciasTransitoriasGuardar_action">
+		</accion>
+		<accion nombre="Volver" imagen="images/previous.gif"
+			modo="detail"
+			clase="asistencia.control.AsistenciasTransitoriasVolver_action"></accion>
+	</controlador>
+
+
+	<controlador nombre="AsistenciaAlumnoControlador2">
+		<accion nombre="grabar"
+			clase="asistencia.control.AsistenciaAlumnoGrabar_action">
+		</accion>
+		<accion nombre="iniciar" al-iniciar="true" oculta="true"
+			clase="asistencia.control.AlIniciar">
+		</accion>
+	</controlador>
+</controladores>
